@@ -52,13 +52,22 @@ class Slide_Player {
 }
 
 class Slide {
-    constructor(div_id, scroll_position, slide_player) {
+    constructor(html, div_id, scroll_position, slide_player) {
       this.div_id = div_id;
       this.scroll_position = scroll_position;
       this.slide_player = slide_player;
+      add_html(html)
       this.update_style();
       this.remove();
       slide_player.deck.push(this);
+    }
+    add_html(html){
+        let body_html = 
+            '<div id="' + this.div_id + '" >' +
+             html +
+             '</div>';
+        document.body.innerHTML += body_html;
+
     }
     update_style(){
         document.getElementById(this.div_id).style.position = 'fixed';
