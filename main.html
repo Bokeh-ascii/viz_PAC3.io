@@ -3,30 +3,39 @@
         <script src="./slides_engine.js"></script>
         <style>
             html{
-                background-color: black;
-                color: rgb(255,138,0);
+                background-color: #FFF4E3;
+                color: FFA45C;
             }
             svg{
                 overflow: hidden;
+                margin-left: auto;
+            }
+            div{
+                width: 100%;
+                height: 100%;
             }
             .land {
-                fill: rgb(255,138,0);
+                fill: FFA45C;
             }
         }
         </style>
     </head>
     <body>
-      <script src=".htmls.js"></script>
+      <script src="./htmls.js"></script>
 
         <script>
             let main = new Slide_Player();
-            main.enlarge_page(100);
+
             const title = new Slide(html_title, 'title', 0, main);
             const war = new Slide(html_war, "war", 300, main);
             const opposing_forces = new Slide(html_opposing_forces, "opposing_forces", 600, main);
             const battle = new Slide(html_battle, "battle", 1000, main);
             const thanks = new Slide(html_thanks, "thanks", 1400, main);
-            const animation = new Animation(7, war);
+            const war_animation = new Animation(10, war);
+            const war_init = new Animation_Frame(action_war_init, war_animation);
+            const lydia_invasion = new Animation_Frame(action_lydia_invasion, war_animation);
+            const ionian_revolts = new Animation_Frame(action_ionian_revolts, war_animation);
+            main.enlarge_page(100);
             update_slide_player(main);
         </script>
     </body>
