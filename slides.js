@@ -141,7 +141,7 @@ let html_war = `
 </svg>
 `
 let html_opposing_forces = `
-    <svg id='opposing_forces_svg' width="100%" height="100%" viewBox="0 0 650 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <svg width="100%" height="100%" viewBox="0 0 650 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <g transform="matrix(1,0,0,1,-3.09816,0.694294)">
         <path d="M150.444,131.606L147.873,135.213L147.673,137.751L150.282,137.55L150.444,131.606Z" style="fill:rgb(255,164,92);"/>
     </g>

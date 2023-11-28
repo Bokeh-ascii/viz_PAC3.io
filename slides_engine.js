@@ -1,5 +1,9 @@
 var lastScrollTop = 0;
 
+/**
+ * Gets the scroll position of the web page and calls the functions of the slide player
+ * @param {*} slide_player  slide player that will be updated with the function
+ */
 function update_slide_player(slide_player){
     window.addEventListener('scroll', function(event) {
         var st = window.pageYOffset || document.documentElement.scrollTop; 
@@ -14,11 +18,19 @@ function update_slide_player(slide_player){
     }, false);
 }
 
+/**
+ * Slide Player class has methods that updates the slides and animations 
+ * by a scroll position
+ */
 class Slide_Player {
     constructor(){
-        this.slide = null;
-        this.deck = [];
+        this.slide = null; // current slide
+        this.deck = []; // deck of slides
     }
+    /**
+     * Scroll down update
+     * @param {*} window_scroll_position 
+     */
     scroll_down(window_scroll_position){
         for(let i=0; i < this.deck.length; i++){
             if(
@@ -41,12 +53,22 @@ class Slide_Player {
             }
         }
     }
-    is_scroll_down(point, window_scroll_position){
-        if(point.scroll_position <= window_scroll_position){
+    /**
+     * Checks if the slide or animation should be played if it is scroll down
+     * @param {*} obj slide or animation
+     * @param {*} window_scroll_position 
+     * @returns boolean 
+     */
+    is_scroll_down(obj, window_scroll_position){
+        if(obj.scroll_position <= window_scroll_position){
             return true;
         }
         return false;
     }
+    /**
+     * Scroll up update
+     * @param {*} window_scroll_position 
+     */
     scroll_up(window_scroll_position){
         let updated = false;
         for(let i=0; i < this.deck.length; i++){
@@ -80,21 +102,35 @@ class Slide_Player {
             }
         }
     }
-    is_scroll_up(point, window_scroll_position, updated){
+    /**
+     * Checks if the slide or animation should be played if it is scroll up
+     * @param {*} obj slide or animation
+     * @param {*} window_scroll_position 
+     * @param {*} updated 
+     * @returns boolean
+     */
+    is_scroll_up(obj, window_scroll_position, updated){
         if(
-            point.scroll_position >= window_scroll_position &&
+            obj.scroll_position >= window_scroll_position &&
             !updated
         ){
             return true;
         }
         return false;
     }
-    play_slide(st){
+    /**
+     * Shows slide in webpage
+     */
+    play_slide(){
         if(this.slide){
             this.slide.play();
         }
 
     }
+    /**
+     * Checks if slide has an assigned animation
+     * @returns boolean
+     */
     is_there_animation(){
         if(this.slide){
             if(this.slide.animation){
@@ -105,6 +141,10 @@ class Slide_Player {
         }
         return false;
     }
+    /**
+     * Adds scroll bar length
+     * @param {*} n 
+     */
     enlarge_page(n){
         for(let i=0; i<= n; i++){
             document.body.innerHTML += '<br />'
@@ -112,6 +152,9 @@ class Slide_Player {
     }
 }
 
+/**
+ * Slide for scroll
+ */
 class Slide {
     constructor(html, div_id, scroll_position, slide_player) {
       this.div_id = div_id;
@@ -129,7 +172,15 @@ class Slide {
              html +
              '</div>';
         document.body.innerHTML += body_html;
+        this.add_svg();
     }
+
+    add_svg(){
+        document.getElementById(this.div_id).children[0].setAttribute(
+            'id', this.div_id + '_svg'
+            );
+    }
+
     update_style(){
         document.getElementById(this.div_id).style.position = 'fixed';
         document.getElementById(this.div_id).style.marginLeft = 'auto';
