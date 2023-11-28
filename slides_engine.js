@@ -1,4 +1,4 @@
-var lastScrollTop = 0;
+let lastScrollTop = 0; //It is updated in each scroll to check if it is scrolled up or
 
 /**
  * Gets the scroll position of the web page and calls the functions of the slide player
@@ -195,8 +195,7 @@ class Slide {
   }
 
 class Animation {
-    constructor(steps, slide){
-        this.steps = steps;
+    constructor(slide){
         this.slide = slide;
         this.length = this.get_length();
         slide.animation = this;
@@ -213,6 +212,11 @@ class Animation {
         }
         return length;
     }
+    update_animation_frames_scroll(){
+        for(let i = 0; i < this.deck.length; i++){
+            this.deck[i].scroll_position = this.deck[i].get_scroll_y();
+        }
+    }
 }
 
 class Animation_Frame {
@@ -221,15 +225,19 @@ class Animation_Frame {
         this.animation = animation;
         this.slide_player = animation.slide.slide_player;
         animation.deck.push(this);
-        this.scroll_position = this.get_scroll_y();
+        this.animation.update_animation_frames_scroll();
     }
     get_scroll_y(){
         return this.animation.slide.scroll_position + 
             this.animation.length * this.get_animaiton_frame_position() / 
-            this.animation.steps;
+            this.animation.deck.length;
     }
     get_animaiton_frame_position(){
-        return this.animation.deck.length - 1;
+        for(let i=0; i < this.animation.deck.length; i++){
+            if(this.animation.deck[i] == this){
+                return i;
+            }
+        }
     }
 }
 
@@ -244,7 +252,6 @@ class Circle_Animation{
     circle_animation(){
         for(let i=0; i  < this.src.length; i++){
             let radius = this.src[i][1] / this.ratio;
-            console.log(this.src[i][0]);
             let cx = document.getElementById(this.src[i][0]).getAttribute('cx');
             let cy = document.getElementById(this.src[i][0]).getAttribute('cy');
             let svg = this.animation.slide.div_id + '_svg';
@@ -265,8 +272,6 @@ class Circle_Animation_Frame extends Animation_Frame{
                 ' rx="' + r + '" ry="' + r + '" '+
                 'style="fill:' + color + ';"/>';
 
-                console.log(circle);
-                console.log(svg);
                 document.getElementById(svg).innerHTML += circle;
             } , animation
         )

@@ -32,34 +32,33 @@
             const battle = new Slide(html_battle, "battle", 1000, main);
             const thanks = new Slide(html_thanks, "thanks", 1400, main);
 
-            const war_animation = new Animation(9, war);
-            const war_init = new Animation_Frame(action_war_init, war_animation);
-            const lydia_invasion = new Animation_Frame(action_lydia_invasion, war_animation);
-            const ionian_revolts = new Animation_Frame(action_ionian_revolts, war_animation);
-            const mardonius_campaign = new Animation_Frame(action_mardonius_campaign, war_animation);
-            const battle_marathon = new Animation_Frame(action_battle_of_marathon, war_animation);
-            const second_campaing = new Animation_Frame(action_second_campaing, war_animation);
-            const battle_thermopilae = new Animation_Frame(action_battle_of_thermopilae, war_animation);
-            const battle_salamis = new Animation_Frame(action_battle_of_salamis, war_animation);
-            const battle_platea = new Animation_Frame(action_battle_of_plattea, war_animation);
+            const war_animation = new Animation(war);
+            new Animation_Frame(action_war_init, war_animation);
+            new Animation_Frame(action_lydia_invasion, war_animation);
+            new Animation_Frame(action_ionian_revolts, war_animation);
+            new Animation_Frame(action_mardonius_campaign, war_animation);
+            new Animation_Frame(action_battle_of_marathon, war_animation);
+            new Animation_Frame(action_second_campaing, war_animation);
+            new Animation_Frame(action_battle_of_thermopilae, war_animation);
+            new Animation_Frame(action_battle_of_salamis, war_animation);
+            new Animation_Frame(action_battle_of_plattea, war_animation);
 
             const opposing_forces_animation = new Animation(
-                cities_ships.length + persian_ships.length + 3,
                 opposing_forces
             );
 
-            const opposing_forces_init = new Animation_Frame(action_opposing_forces_init, opposing_forces_animation);
-            const opposing_forces_greek = new Animation_Frame(action_greek_cities, opposing_forces_animation);
-            const greek_ships_animation = new Circle_Animation(cities_ships, opposing_forces_animation, 1, color3);
+            new Animation_Frame(action_opposing_forces_init, opposing_forces_animation);
+            new Animation_Frame(action_greek_cities, opposing_forces_animation);
+            new Circle_Animation(cities_ships, opposing_forces_animation, 1, color3);
 
-            const opposing_forces_persian = new Animation_Frame(action_persian_nations, opposing_forces_animation);
-            const persian_ships_animation = new Circle_Animation(persian_ships, opposing_forces_animation, 1, color4);
+            new Animation_Frame(action_persian_nations, opposing_forces_animation);
+            new Circle_Animation(persian_ships, opposing_forces_animation, 1, color4);
 
-            const batlle_animation = new Animation(3, battle);
+            const batlle_animation = new Animation(battle);
 
-            const initial_battle_disposition_animation = new Animation_Frame(action_initial_battle_disposition, batlle_animation); 
-            const oppening_moves_battle_animation = new Animation_Frame(action_oppening_moves_battle, batlle_animation);
-            const main_battle_animation = new Animation_Frame(action_main_battle, batlle_animation);
+            new Animation_Frame(action_initial_battle_disposition, batlle_animation); 
+            new Animation_Frame(action_oppening_moves_battle, batlle_animation);
+            new Animation_Frame(action_main_battle, batlle_animation);
 
             main.enlarge_page(100);
             update_slide_player(main);
