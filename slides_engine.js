@@ -220,11 +220,11 @@ class Animation {
 }
 
 class Animation_Frame {
-    constructor(action, animation){
+    constructor(action, slide){
         this.action = action;
-        this.animation = animation;
-        this.slide_player = animation.slide.slide_player;
-        animation.deck.push(this);
+        this.set_animation(slide);
+        this.slide_player = slide.slide_player;
+        this.animation.deck.push(this);
         this.animation.update_animation_frames_scroll();
     }
     get_scroll_y(){
@@ -239,12 +239,20 @@ class Animation_Frame {
             }
         }
     }
+    set_animation(slide){
+        if(slide.animation){
+            this.animation = slide.animation;
+        } else {
+            slide.animation = new Animation(slide);
+            this.animation = slide.animation;
+        }
+    }
 }
 
-class Circle_Animation{
-    constructor(src, animation, ratio, color){
+class Circle_Animation {
+    constructor(src, slide, ratio, color){
         this.src = src;
-        this.animation = animation;
+        this.slide = slide;
         this.ratio = ratio;
         this.color = color;
         this.circle_animation();
@@ -254,14 +262,14 @@ class Circle_Animation{
             let radius = this.src[i][1] / this.ratio;
             let cx = document.getElementById(this.src[i][0]).getAttribute('cx');
             let cy = document.getElementById(this.src[i][0]).getAttribute('cy');
-            let svg = this.animation.slide.div_id + '_svg';
-            new Circle_Animation_Frame(cx, cy, radius, svg, this.color, this.animation)
+            let svg = this.slide.div_id + '_svg';
+            new Circle_Animation_Frame(cx, cy, radius, svg, this.color, this.slide)
         }
     }
 }
 
 class Circle_Animation_Frame extends Animation_Frame{
-    constructor(cx, cy, r, svg, color, animation){
+    constructor(cx, cy, r, svg, color, slide){
         super(
             function(){
                 var elementExists = document.getElementById('_animation_frame_circle_');
@@ -273,7 +281,7 @@ class Circle_Animation_Frame extends Animation_Frame{
                 'style="fill:' + color + ';"/>';
 
                 document.getElementById(svg).innerHTML += circle;
-            } , animation
+            } , slide
         )
     }
 }
