@@ -491,36 +491,13 @@ let html_battle = `
 `;
 let html_thanks = '<p>Thank you</p>';
 
-let action_war_init = function(){
-    lydia_invasion_area_group_ids.deactivate();
-    ionian_revolt_group_ids.deactivate();
-    mardonius_campaing_group_ids.deactivate();
-    battle_of_marathon_group_ids.deactivate();
-    second_campaing_group_ids.deactivate();
-    battle_of_thermopilae_group_ids.deactivate();
-    battle_of_salamis_group_ids.deactivate();
-    battle_of_platea_group_ids.deactivate();
-}
 
 const lydia_invasion_area_ids = [
     'Lydia_invasion_Chios',
     'Lydia_Invasion_Asia',
     'Lydia_Invasion_Europe',
     'Lydia_invasion_Chios'
-]
-
-let lydia_invasion_area_group_ids = new Id_Group(lydia_invasion_area_ids);
-
-let action_lydia_invasion = function(){
-    lydia_invasion_area_group_ids.activate();
-    ionian_revolt_group_ids.deactivate();
-    mardonius_campaing_group_ids.deactivate();
-    battle_of_marathon_group_ids.deactivate();
-    second_campaing_group_ids.deactivate();
-    battle_of_thermopilae_group_ids.deactivate();
-    battle_of_salamis_group_ids.deactivate();
-    battle_of_platea_group_ids.deactivate();
-}
+];
 
 const ionian_revolt_ids = [
     'Ionian_revolt',
@@ -534,124 +511,37 @@ const ionian_revolt_ids = [
     'Ionian_revolt7',
     'Ionian_revolt8',
     'Ionian_revolt9'
-]
-
-let ionian_revolt_group_ids = new Id_Group(ionian_revolt_ids);
-
-let action_ionian_revolts = function(){
-    lydia_invasion_area_group_ids.activate();
-    ionian_revolt_group_ids.activate();
-    mardonius_campaing_group_ids.deactivate();
-    battle_of_marathon_group_ids.deactivate();
-    second_campaing_group_ids.deactivate();
-    battle_of_thermopilae_group_ids.deactivate();
-    battle_of_salamis_group_ids.deactivate();
-    battle_of_platea_group_ids.deactivate();
-}
+];
 
 const mardonius_campaing_ids = ['Mardonius_campaign'];
 
-let mardonius_campaing_group_ids = new Id_Group(mardonius_campaing_ids);
-
-let action_mardonius_campaign = function(){
-    lydia_invasion_area_group_ids.activate();
-    ionian_revolt_group_ids.deactivate();
-    mardonius_campaing_group_ids.activate();
-    battle_of_marathon_group_ids.deactivate();
-    second_campaing_group_ids.deactivate();
-    battle_of_thermopilae_group_ids.deactivate();
-    battle_of_salamis_group_ids.deactivate();
-    battle_of_platea_group_ids.deactivate();
-};
-
-
-
 const battle_of_marathon_ids = ['Marathon_battle'];
-
-let battle_of_marathon_group_ids = new Id_Group(battle_of_marathon_ids);
-
-let action_battle_of_marathon = function(){
-    lydia_invasion_area_group_ids.activate();
-    ionian_revolt_group_ids.deactivate();
-    mardonius_campaing_group_ids.deactivate();
-    battle_of_marathon_group_ids.activate();
-    second_campaing_group_ids.deactivate();
-    battle_of_thermopilae_group_ids.deactivate();
-    battle_of_salamis_group_ids.deactivate();
-    battle_of_platea_group_ids.deactivate();
-}
 
 const second_campaing_ids = [
     'Second_war_campaign',
     'Second_war_campaign1'
 ];
 
-let second_campaing_group_ids = new Id_Group(second_campaing_ids);
-
-let action_second_campaing = function(){
-    lydia_invasion_area_group_ids.activate();
-    ionian_revolt_group_ids.deactivate();
-    mardonius_campaing_group_ids.deactivate();
-    battle_of_marathon_group_ids.deactivate();
-    second_campaing_group_ids.activate();
-    battle_of_thermopilae_group_ids.deactivate();
-    battle_of_salamis_group_ids.deactivate();
-    battle_of_platea_group_ids.deactivate();
-};
-
 const battle_of_thermopilae_ids = ['Thermopilae_battle'];
-
-let battle_of_thermopilae_group_ids = new Id_Group(battle_of_thermopilae_ids);
-
-let action_battle_of_thermopilae = function(){
-    lydia_invasion_area_group_ids.activate();
-    ionian_revolt_group_ids.deactivate();
-    mardonius_campaing_group_ids.deactivate();
-    battle_of_marathon_group_ids.deactivate();
-    second_campaing_group_ids.deactivate();
-    battle_of_thermopilae_group_ids.activate();
-    battle_of_salamis_group_ids.deactivate();
-    battle_of_platea_group_ids.deactivate();
-}
 
 const battle_of_salamis_ids = ['Salamis_battle'];
 
-let battle_of_salamis_group_ids = new Id_Group(battle_of_salamis_ids);
-
-let action_battle_of_salamis = function(){
-    lydia_invasion_area_group_ids.activate();
-    ionian_revolt_group_ids.deactivate();
-    mardonius_campaing_group_ids.deactivate();
-    battle_of_marathon_group_ids.deactivate();
-    second_campaing_group_ids.deactivate();
-    battle_of_thermopilae_group_ids.deactivate();
-    battle_of_salamis_group_ids.activate();
-    battle_of_platea_group_ids.deactivate();
-}
-
 const battle_of_platea_ids = ['Platea_battle'];
 
-let battle_of_platea_group_ids = new Id_Group(battle_of_platea_ids);
+const war_ids = [
+    lydia_invasion_area_ids,
+    ionian_revolt_ids,
+    mardonius_campaing_ids,
+    battle_of_marathon_ids,
+    second_campaing_ids,
+    battle_of_thermopilae_ids,
+    battle_of_salamis_ids,
+    battle_of_platea_ids
+]
 
-let action_battle_of_plattea = function(){
-    lydia_invasion_area_group_ids.activate();
-    ionian_revolt_group_ids.deactivate();
-    mardonius_campaing_group_ids.deactivate();
-    battle_of_marathon_group_ids.deactivate();
-    second_campaing_group_ids.deactivate();
-    battle_of_thermopilae_group_ids.deactivate();
-    battle_of_salamis_group_ids.deactivate();
-    battle_of_platea_group_ids.activate();
-}
+
 
 const greek_cities_ids = ['Greek-cities'];
-
-let greek_cities_group_ids = new Id_Group(greek_cities_ids);
-
-let action_greek_cities = function(){
-    persian_nations_group_ids.deactivate();
-    greek_cities_group_ids.activate();
-}
 
 const persian_nations_ids = [
     'Doria',
@@ -677,13 +567,10 @@ const persian_nations_ids = [
     'Cyprus'
 ];
 
-let persian_nations_group_ids = new Id_Group(persian_nations_ids);
-
-let action_persian_nations = function(){
-    persian_nations_group_ids.activate();
-    greek_cities_group_ids.deactivate();
-}
-
+const opposing_forces_ids = [
+    greek_cities_ids,
+    persian_nations_ids
+]
 
 const cities_ships =[
     ['Athens', 180],
@@ -730,25 +617,11 @@ const action_opposing_forces_init = function(){
 }
 
 const initial_battle_disposition_ids = ['initial_battle'];
-let initial_battle_disposition_group_ids = new Id_Group(initial_battle_disposition_ids);
-const action_initial_battle_disposition = function(){
-    initial_battle_disposition_group_ids.activate();
-    oppening_moves_battle_group_ids.deactivate();
-    main_battle_group_ids.deactivate();
-}
-
 const oppening_moves_battle_ids = ['oppening_moves_battle'];
-let oppening_moves_battle_group_ids = new Id_Group(oppening_moves_battle_ids);
-const action_oppening_moves_battle = function(){
-    initial_battle_disposition_group_ids.deactivate();
-    oppening_moves_battle_group_ids.activate();
-    main_battle_group_ids.deactivate();
-}
-
 const main_battle_ids = ['main_battle'];
-let main_battle_group_ids = new Id_Group(main_battle_ids);
-const action_main_battle = function(){
-    initial_battle_disposition_group_ids.deactivate();
-    oppening_moves_battle_group_ids.deactivate();
-    main_battle_group_ids.activate();
-}
+
+const battle_ids = [
+    initial_battle_disposition_ids,
+    oppening_moves_battle_ids,
+    main_battle_ids
+]

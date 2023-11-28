@@ -286,6 +286,53 @@ class Circle_Animation_Frame extends Animation_Frame{
     }
 }
 
+class SVG_Scroll_Play{
+    constructor(ids, plays, slide){
+        this.ids = ids;
+        this.group_ids = this.get_group_id();
+        this.plays = plays;
+        this.plays = plays;
+        this.slide = slide;
+        this.create_animation_frames();
+    }
+    create_animation_frames(){
+        for(let i=0; i < this.plays.length; i++){
+            new SVG_Scroll_Play_Animation_Frame(
+                this.group_ids, this.plays[i], this.slide
+            )
+        }
+    }
+    get_group_id(){
+        let group_ids = [];
+        for (let i=0; i < this.ids.length; i++){
+            group_ids.push(new Id_Group(this.ids[i]));
+        }
+        return group_ids;
+    }
+}
+
+class SVG_Scroll_Play_Animation_Frame extends Animation_Frame{
+    constructor(group_ids, play, slide){
+        let play_map = Array(group_ids.length).fill(0);
+        for(let i = 0; i < play.length; i++){
+            play_map[play[i]] = 1
+        }
+        super(
+            function(){
+                for(let i = 0; i < group_ids.length; i++){
+                    console.log(group_ids[i])
+                    if(play_map[i] == 0){
+                        group_ids[i].deactivate();
+                    } else {
+  
+                        group_ids[i].activate();
+                    }
+                }
+            }, slide
+        )
+    }
+}
+
 class Id_Group{
     constructor(ids){
         this.ids = ids;
