@@ -52,7 +52,11 @@ class Slide_Player {
         for(let i=0; i < this.deck.length; i++){
             if(this.is_scroll_up(this.deck[i], window_scroll_position, updated)){
                 if(this.slide){this.slide.remove();}
-                this.slide = this.deck[i];
+                    if(i>0){
+                        this.slide = this.deck[i-1];
+                    } else {
+                        this.slide = this.deck[0];
+                    }
                 updated = true;
             }
         }
@@ -66,7 +70,11 @@ class Slide_Player {
                         updated
                     )
                 ){
-                    this.slide.animation.deck[i].action();
+                    if(i>0){
+                        this.slide.animation.deck[i-1].action();
+                    } else {
+                        this.slide.animation.deck[0].action();
+                    }
                     updated = true;
                 }
             }
@@ -116,14 +124,11 @@ class Slide {
       this.animation = null;
     }
     add_html(html){
-        console.log('hola');
         let body_html = 
             '<div id="' + this.div_id + '" >' +
              html +
              '</div>';
-        console.log(body_html);
         document.body.innerHTML += body_html;
-
     }
     update_style(){
         document.getElementById(this.div_id).style.position = 'fixed';
@@ -174,6 +179,46 @@ class Animation_Frame {
     }
     get_animaiton_frame_position(){
         return this.animation.deck.length - 1;
+    }
+}
+
+class Circle_Animation{
+    constructor(src, animation, ratio, color){
+        this.src = src;
+        this.animation = animation;
+        this.ratio = ratio;
+        this.color = color;
+        this.circle_animation();
+    }
+    circle_animation(){
+        for(let i=0; i  < this.src.length; i++){
+            let radius = this.src[i][1] / this.ratio;
+            console.log(this.src[i][0]);
+            let cx = document.getElementById(this.src[i][0]).getAttribute('cx');
+            let cy = document.getElementById(this.src[i][0]).getAttribute('cy');
+            let svg = this.animation.slide.div_id + '_svg';
+            new Circle_Animation_Frame(cx, cy, radius, svg, this.color, this.animation)
+        }
+    }
+}
+
+class Circle_Animation_Frame extends Animation_Frame{
+    constructor(cx, cy, r, svg, color, animation){
+        super(
+            function(){
+                var elementExists = document.getElementById('_animation_frame_circle_');
+                if(elementExists){elementExists.remove()}
+
+                let circle = '<ellipse id="_animation_frame_circle_" ' +
+                'cx="' + cx + '" cy="' + cy + '"'+
+                ' rx="' + r + '" ry="' + r + '" '+
+                'style="fill:' + color + ';"/>';
+
+                console.log(circle);
+                console.log(svg);
+                document.getElementById(svg).innerHTML += circle;
+            } , animation
+        )
     }
 }
 
