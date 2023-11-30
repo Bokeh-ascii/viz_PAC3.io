@@ -1,10 +1,15 @@
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500&display=swap" rel="stylesheet">
+        
         <script src="./slides_engine.js"></script>
         <style>
             html{
                 background-color: #FFF4E3;
-                color: FFA45C;
+                color: #FFA45C;
+                font-family: 'Azeret Mono', monospace;
             }
             svg{
                 overflow: hidden;
@@ -15,15 +20,33 @@
                 height: 100%;
             }
             .land {
-                fill: FFA45C;
+                fill: #FFA45C;
             }
-        }
+            .invaded{
+                fill: #FFCDAB;
+            }
+            .battle{
+                fill: #5D5D5A;
+            }
+            .campaign{
+                stroke: #5D5D5A;
+            }
+            .greek_city{
+                fill: #5D5D5A;           
+            }
         </style>
     </head>
     <body>
       <script src="./slides.js"></script>
 
         <script>
+            const color1 = '#FFF4E3';
+            const color2 = '#FFA45C';
+            const color3 = '#FFCDAB';
+            const color4 = '#5D5D5A';
+
+            //document.getElementsByClassName("land").style.fill= color3;
+
             let main = new Slide_Player();
 
             const title = new Slide(html_title, 'title', 0, main);
