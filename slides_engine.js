@@ -190,7 +190,7 @@ class Slide {
         document.getElementById(this.div_id).style.marginTop = 'auto';
     }
     remove(){
-        document.getElementById(this.div_id).style.marginTop = '100%';
+        document.getElementById(this.div_id).style.marginTop = '1000%';
     }
   }
 
