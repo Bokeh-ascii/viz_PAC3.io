@@ -262,14 +262,15 @@ class Circle_Animation {
             let radius = this.src[i][1] / this.ratio;
             let cx = document.getElementById(this.src[i][0]).getAttribute('cx');
             let cy = document.getElementById(this.src[i][0]).getAttribute('cy');
+            let tag = this.src[i][0];
             let svg = this.slide.div_id + '_svg';
-            new Circle_Animation_Frame(cx, cy, radius, svg, this.color, this.slide)
+            new Circle_Animation_Frame(cx, cy, radius, svg, this.color, this.slide, tag)
         }
     }
 }
 
 class Circle_Animation_Frame extends Animation_Frame{
-    constructor(cx, cy, r, svg, color, slide){
+    constructor(cx, cy, r, svg, color, slide, tag){
         super(
             function(){
                 var elementExists = document.getElementById('_animation_frame_circle_');
@@ -280,7 +281,12 @@ class Circle_Animation_Frame extends Animation_Frame{
                 ' rx="' + r + '" ry="' + r + '" '+
                 'style="fill:' + color + ';"/>';
 
+                let x = 50;
+                let y = 270;
+
                 document.getElementById(svg).innerHTML += circle;
+
+                write_legend(tag, svg, r, x, y);
             } , slide
         )
     }
@@ -320,7 +326,6 @@ class SVG_Scroll_Play_Animation_Frame extends Animation_Frame{
         super(
             function(){
                 for(let i = 0; i < group_ids.length; i++){
-                    console.log(group_ids[i])
                     if(play_map[i] == 0){
                         group_ids[i].deactivate();
                     } else {
@@ -347,4 +352,21 @@ class Id_Group{
             document.getElementById(this.ids[i]).style.visibility = 'hidden';
         }
     }
+}
+
+function write_legend(tag, svg, r, x, y){
+    let id = 'legend_ships';
+
+    if(document.getElementById(id)){
+        let elem = document.getElementById(id);
+        elem.parentNode.removeChild(elem);
+    }
+    
+    if(tag.includes('_ships')){
+        tag = tag.substring(0, tag.length - 6);
+    }
+
+    let legend = '<text id="'+id+'" class="legend" x="'+x+'" y="'+y+'">' + tag + ' : ' + r + ' ships </text>';
+
+    document.getElementById(svg).innerHTML += legend;
 }
