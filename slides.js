@@ -147,18 +147,40 @@ let html_war = `
         <text id="year7_legend" class="legend" x="0" y="350">August 479 BC</text>
     </g>
     <rect class="legend_box" id="year0_legend_box_explanation" x="19" y="200" width="200" height="50"/>
-    <text class="legend" id="year0_legend_explanation" x="20" y="215">The Persians conquered </text>
-    <text class="legend" id="year0_legend_explanation1" x="20" y="245"> Asian Greek cities</text>
-    <text class="legend" id="year1_legend_explanation" x="20" y="215">Ioninan revolts against </text>
-    <text class="legend" id="year1_legend_explanation1" x="20" y="245">Persian rule</text>
-    <text class="legend" id="year2_legend_explanation" x="20" y="215">Mardonius Persian</text>
-    <text class="legend" id="year2_legend_explanation1" x="20" y="245">campaign</text>
-    <text class="legend" id="year3_legend_explanation" x="40" y="235">Marathon Battle</text>
+    <a xlink:href= "https://en.wikipedia.org/wiki/Greco-Persian_Wars#Origins_of_the_conflict" target="_blank">
+        <text class="legend" id="year0_legend_explanation" x="20" y="215">The Persians conquered </text>
+    </a>
+    <a xlink:href="https://en.wikipedia.org/wiki/Greco-Persian_Wars#Origins_of_the_conflict" target="_blank">
+        <text class="legend" id="year0_legend_explanation1" x="20" y="245"> Asian Greek cities</text>
+    </a>
+    <a xlink:href="https://en.wikipedia.org/wiki/Ionian_Revolt" target="_blank">
+        <text class="legend" id="year1_legend_explanation" x="20" y="215">Ioninan revolts against </text>
+    </a>
+    <a xlink:href="https://en.wikipedia.org/wiki/Ionian_Revolt" target="_blank">
+        <text class="legend" id="year1_legend_explanation1" x="20" y="245">Persian rule</text>
+    </a>
+    <a xlink:href="https://en.wikipedia.org/wiki/First_Persian_invasion_of_Greece" target="_blank">
+        <text class="legend" id="year2_legend_explanation" x="20" y="215">Mardonius Persian</text>
+    </a>
+    <a xlink:href="https://en.wikipedia.org/wiki/First_Persian_invasion_of_Greece" target="_blank">
+        <text class="legend" id="year2_legend_explanation1" x="20" y="245">campaign</text>
+    </a>
+    <a xlink:href="https://en.wikipedia.org/wiki/Battle_of_Marathon" target="_blank">
+        <text class="legend" id="year3_legend_explanation" x="40" y="235">Marathon Battle</text>
+    </a>
     <rect class="legend_box" id="year0_legend_box_explanation1" x="19" y="250" width="200" height="50" rx="5"/>
-    <text class="legend" id="year4_legend_explanation" x="20" y="280">Second Persian Invasion</text>
-    <text class="legend" id="year5_legend_explanation" x="20" y="280">Thermopylae Battle</text>
-    <text class="legend" id="year6_legend_explanation" x="60" y="280">Salamis Battle</text>
-    <text class="legend" id="year7_legend_explanation" x="60" y="280">Platea Battle</text>
+    <a xlink:href="https://en.wikipedia.org/wiki/Second_Persian_invasion_of_Greece" target="_blank">
+        <text class="legend" id="year4_legend_explanation" x="20" y="280">Second Persian Invasion</text>
+    </a>
+    <a xlink:href="https://en.wikipedia.org/wiki/Battle_of_Thermopylae" target="_blank">
+        <text class="legend" id="year5_legend_explanation" x="20" y="280">Thermopylae Battle</text>
+    </a>
+    <a xlink:href="https://en.wikipedia.org/wiki/Battle_of_Salamis" target="_blank">
+        <text class="legend" id="year6_legend_explanation" x="60" y="280">Salamis Battle</text>
+    </a>
+    <a xlink:href="https://en.wikipedia.org/wiki/Battle_of_Plataea" target="_blank">
+        <text class="legend" id="year7_legend_explanation" x="60" y="280">Platea Battle</text>
+    </a>
     <g id="war_timeline">
         <line id="war_line" class="time_line" x1="` + time_line_x1 + `" x2="` + time_line_x2 + `" y1="`+time_line_y+`" y2="`+time_line_y+`" />
     </g>
@@ -445,27 +467,69 @@ let html_opposing_forces = `
     <g id="Greek-cities" serif:id="Greek cities">
         <rect class="legend_box" x="19" y="400" rx="5" width="200" height="40" />
         <text class="legend"  x="35" y="425">Greek cities alliance</text>
-        <circle class="greek_city" id="Aegina" cx="216.425" cy="170.863" r="2"/>
-        <circle class="greek_city" id="Sparta" cx="191.284" cy="197.224" r="2" />
-        <circle class="greek_city" id="Eretria" cx="220.818" cy="143.872" r="2" />
-        <circle class="greek_city" id="Naxos" cx="265.477" cy="189.738" r="2" />
-        <circle class="greek_city" id="Styros" cx="235.764" cy="155.26" r="2" />
-        <circle class="greek_city" id="Milos" cx="237.302" cy="203.898" r="2"/>
-        <circle class="greek_city" id="Kythnos" cx="239.749" cy="182" r="2" />
-        <circle class="greek_city" id="Syfnos" cx="247.426" cy="194.87" r="2" />
-        <circle class="greek_city" id="Chalcis" cx="220.304" cy="146.544" r="2" />
-        <circle class="greek_city" id="Sicyon" cx="199.697" cy="164.738" r="2" />
-        <circle class="greek_city" id="Ambracia" cx="162.615" cy="131.359" r="2"/>
-        <circle class="greek_city" id="Leucas" cx="147.855" cy="134.517" r="2"/>
-        <circle class="greek_city" id="Athens" cx="218.235" cy="160.15" r="2"/>
-        <circle class="greek_city" id="Corinth" cx="203.899" cy="164.188" r="2"/>
-        <circle class="greek_city" id="Megara" cx="212.281" cy="161.37" r="2"/>
-        <circle class="greek_city" id="Epidaurus" cx="203.596" cy="175.043" r="2"/>
-        <circle class="greek_city" id="Troezen" cx="209.927" cy="179.977" r="2" />
-        <circle class="greek_city" id="Ermioni" cx="206.151" cy="181.037" r="2"/>
-        <circle class="greek_city" id="Ceos" cx="237.4" cy="173.77" r="2"/>
-        <circle class="greek_city" id="Serifos" cx="241.888" cy="188.522" r="2"/>
-        <circle class="greek_city" id="Croton" cx="57.232" cy="130.499" r="2"/>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Aegina" target="_blank">
+            <circle class="greek_city" id="Aegina" cx="216.425" cy="170.863" r="2"/>
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Sparta" target="_blank">
+            <circle class="greek_city" id="Sparta" cx="191.284" cy="197.224" r="2" />
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Eretria" target="_blank">
+            <circle class="greek_city" id="Eretria" cx="220.818" cy="143.872" r="2" />
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Naxos" target="_blank">
+            <circle class="greek_city" id="Naxos" cx="265.477" cy="189.738" r="2" />
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Styra" target="_blank">
+            <circle class="greek_city" id="Styros" cx="235.764" cy="155.26" r="2" />
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Milos" target="_blank">
+            <circle class="greek_city" id="Milos" cx="237.302" cy="203.898" r="2"/>
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Kythnos" target="_blank">
+            <circle class="greek_city" id="Kythnos" cx="239.749" cy="182" r="2" />
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Sifnos" target="_blank">
+            <circle class="greek_city" id="Syfnos" cx="247.426" cy="194.87" r="2" />
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Chalcis" target="_blank">
+            <circle class="greek_city" id="Chalcis" cx="220.304" cy="146.544" r="2" />
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Sicyon" target="_blank">
+            <circle class="greek_city" id="Sicyon" cx="199.697" cy="164.738" r="2" />
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Ambracia" target="_blank">
+            <circle class="greek_city" id="Ambracia" cx="162.615" cy="131.359" r="2"/>
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Lefkada" target="_blank">
+            <circle class="greek_city" id="Leucas" cx="147.855" cy="134.517" r="2"/>
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Classical_Athens" target="_blank">
+            <circle class="greek_city" id="Athens" cx="218.235" cy="160.15" r="2"/>
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Corinth" target="_blank">
+            <circle class="greek_city" id="Corinth" cx="203.899" cy="164.188" r="2"/>
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Megara" target="_blank">
+            <circle class="greek_city" id="Megara" cx="212.281" cy="161.37" r="2"/>
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Epidaurus" target="_blank">
+            <circle class="greek_city" id="Epidaurus" cx="203.596" cy="175.043" r="2"/>
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Troezen" target="_blank">
+            <circle class="greek_city" id="Troezen" cx="209.927" cy="179.977" r="2" />
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Ermioni" target="_blank">
+            <circle class="greek_city" id="Ermioni" cx="206.151" cy="181.037" r="2"/>
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Ceos" target="_blank">
+            <circle class="greek_city" id="Ceos" cx="237.4" cy="173.77" r="2"/>
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Serifos" target="_blank">
+            <circle class="greek_city" id="Serifos" cx="241.888" cy="188.522" r="2"/>
+        </a>
+        <a xlink:href= "https://en.wikipedia.org/wiki/Crotone" target="_blank">
+            <circle class="greek_city" id="Croton" cx="57.232" cy="130.499" r="2"/>
+        </a>
     </g>
     <g style="visibility: hidden">
         <ellipse id="Hellespontine-Phrygia_ships" cx="373.606" cy="67.667" rx="2.855" ry="1.723" style="fill:rgb(255,0,38);"/>
